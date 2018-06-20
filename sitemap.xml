@@ -3,38 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/post/mtkl/</loc>
+    <loc>http://acldm.github.io/post/mtkl/</loc>
     <lastmod>2018-06-20T13:21:14+08:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/perlin/</loc>
+    <loc>http://acldm.github.io/post/perlin/</loc>
     <lastmod>2018-06-20T13:20:20+08:00</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>http://acldm.github.io/about/</loc>
     <lastmod>2018-06-20T13:16:16+08:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>http://acldm.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>http://acldm.github.io/post/</loc>
     <lastmod>2018-06-20T13:21:14+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>http://acldm.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>http://acldm.github.io/</loc>
     <lastmod>2018-06-20T13:21:14+08:00</lastmod>
     <priority>0</priority>
   </url>

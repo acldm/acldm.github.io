@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on acldm的博客</title>
-    <link>/post/</link>
+    <link>http://acldm.github.io/post/</link>
     <description>Recent content in Posts on acldm的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 Jun 2018 13:21:14 +0800</lastBuildDate>
     
-        <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://acldm.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>生成自定义分布的随机数——蒙特卡洛算法</title>
-      <link>/post/mtkl/</link>
+      <link>http://acldm.github.io/post/mtkl/</link>
       <pubDate>Wed, 20 Jun 2018 13:21:14 +0800</pubDate>
       
-      <guid>/post/mtkl/</guid>
+      <guid>http://acldm.github.io/post/mtkl/</guid>
       <description>&lt;p&gt;日常使用的随机有很多需求是无法满足的。自定义分布就是普通随机生成算法所棘手的一个问题。&lt;/p&gt;
 
 &lt;p&gt;所谓自定义分布，比如说，有一个6面骰子，正常情况下，1~6这6个数字均匀分布在6个面。投掷骰子，这六个数字各有六分之一的机率正面朝上，这是最常见的状况。&lt;/p&gt;
@@ -50,10 +50,10 @@ end
     
     <item>
       <title>Perlin噪音算法初次接触</title>
-      <link>/post/perlin/</link>
+      <link>http://acldm.github.io/post/perlin/</link>
       <pubDate>Wed, 20 Jun 2018 13:20:20 +0800</pubDate>
       
-      <guid>/post/perlin/</guid>
+      <guid>http://acldm.github.io/post/perlin/</guid>
       <description>
 
 &lt;p&gt;一个标准的随机数生成器能够产生互不关联的随机数。但是一般的随机性并不符合自然界的特征。&lt;/p&gt;
