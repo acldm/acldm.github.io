@@ -1,78 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="generator" content="Hugo 0.42.1" />
-		<title>生成自定义分布的随机数——蒙特卡洛算法 - Manis</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>生成自定义分布的随机数——蒙特卡洛算法</title>
+	
+	<meta name="description" content="">
+	<meta name="image" content="">
+	
+	<meta itemprop="name" content="生成自定义分布的随机数——蒙特卡洛算法">
+	<meta itemprop="description" content="">
+	<meta itemprop="image" content="">
+	
+	<meta name="og:title" content="生成自定义分布的随机数——蒙特卡洛算法">
+	<meta name="og:description" content="">
+	
+	<meta name="og:url" content="acldm.github.io/post/mtkl/">
+	<meta name="og:site_name" content="生成自定义分布的随机数——蒙特卡洛算法">
+	<meta name="og:type" content="article">
+	
+	<meta name="article:tag" content="">
+	<link rel="stylesheet" type="text/css" href="acldm.github.iocss/style.css">
+	
+	
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
-		<meta name="description" content="日常使用的随机有很多需求是无法满足的。自定义分布就是普通随机生成算法所棘手的一个问题。
-所谓自定义分布，比如说，有一个6面骰子，正常情况下，1~6这6个数字均匀分布在6个面。投掷骰子，这六个数字各有六分之一的机率正面朝上，这是最常见的状况。
-现在，换一个6面骰子，与前一个骰子不一样的是现在的6面骰有3个面上是3，两个面上是2，剩余一个面上是1。现在，投掷这个骰子，这时正面朝上的数字的机率就不是均等的了。数字3正面朝上的机率是二分之一，数字2正面朝上的机率所三分之一。数字1正面朝上的机率是六分之一。想要得到这种自定义分布的随机数，普通的随机数生成器是形不通的。
-对于这样的问题，正好有一个简单有效的算法来生成这样的随机数。它就是蒙特卡洛算法。这个算法生成两个随机数并使用以下步骤来生成一个自定义分布的数：
- 选择一个随机数R1 计算R1被选中的资格P(假设P=R1) 生成新的随机数R2 如果R2小于P,则R1就是要找的随机数 如果R2大于P,丢弃R1回到第1步重新寻找  以下是该算法的实现:
-function generatorNumber() while true do local n = math.random(100); local n2 = math.random(100); if n2 &lt; n then return n; end end end">
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 
-
-		
-		
-		
-		<link rel="stylesheet" href="/css/ui.min.css"/>
-		
-		
-		
-
-		<link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Lato|Raleway">
-
-		
-
-		<style>
-	a { color: #ff8181; }
-	blockquote {
-		border-left-color: #ff8181;
-		border-right-color: #ff8181; }
-	.bar a:hover {
-		color: #ff8181;
-		text-decoration: none; }
-	.sep {
-		margin-top: 2rem;
-		margin-bottom: 1rem;
-		margin-left:0;
-		width: 24rem;
-		border-top: 2px solid #ff8181; }
-</style>
-
-	</head>
+</head>
 
 <body>
-<header class="container no-print">
-	<div class="u-header">
-		<nav class="bar">
-	<ul><li>
-			<a href="/">
-				<img class="icon-text" src="/img/prev.svg"/>
-			</a>
-		</li></ul>
-</nav>
 
-	</div>
-</header>
-<main class="container">
-
-<article>
-	<header><hgroup id="brand">
-	<h1>生成自定义分布的随机数——蒙特卡洛算法</h1>
-	<h5>
-		
-		<time datetime="2018-06-20 13:21:14 &#43;0800 CST">Jun 20, 2018</time>
-		<span class="no-print">
-			<span>
-	</h5>
+<header>
 	
-</hgroup>
-<hr class="sep" />
+	<a href="acldm.github.io" style="float: left;color:#777;"><strong>acldm的博客</strong></a>
+	
+	&nbsp;&nbsp;&nbsp;&nbsp;<a href="acldm.github.io/about/" style="color:#777;"><strong>关于我</strong></a>
+	
+	
+	
+	<a href="acldm.github.ioindex.xml" style="color:#777;float: right;"><strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></strong></a>
 </header>
-	<p>日常使用的随机有很多需求是无法满足的。自定义分布就是普通随机生成算法所棘手的一个问题。</p>
+
+
+<div id="loadingMask" style="width: 100%; height: 100%; position: fixed; background: #fff;"></div>
+<script>
+function fadeOut(el) {
+  el.style.opacity = 1;
+
+  var last = +new Date();
+  var tick = function() {
+    el.style.opacity = +el.style.opacity - (new Date() - last) / 80;
+    last = +new Date();
+    
+
+    if (el.style.opacity > 0) {
+      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+    } else {
+      el.style.display='none';
+    }
+  };
+
+  tick();
+}
+
+function ready(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+         el = document.getElementById('loadingMask');
+         fadeOut(el);
+        var elements = document.querySelectorAll("img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("alt")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("alt"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+
+    } else {
+        document.addEventListener('DOMContentLoaded', fn);
+    }
+}
+window.onload = ready;
+</script>
+
+<div class="content">
+  <h1>生成自定义分布的随机数——蒙特卡洛算法 <aside></aside></h1>
+  <p>日常使用的随机有很多需求是无法满足的。自定义分布就是普通随机生成算法所棘手的一个问题。</p>
 
 <p>所谓自定义分布，比如说，有一个6面骰子，正常情况下，1~6这6个数字均匀分布在6个面。投掷骰子，这六个数字各有六分之一的机率正面朝上，这是最常见的状况。</p>
 
@@ -89,62 +122,25 @@ function generatorNumber() while true do local n = math.random(100); local n2 = 
 </ol>
 
 <p>以下是该算法的实现:</p>
-<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kr">function</span> <span class="nf">generatorNumber</span><span class="p">()</span>
-	<span class="kr">while</span> <span class="kc">true</span> <span class="kr">do</span>
-		<span class="kd">local</span> <span class="n">n</span> <span class="o">=</span> <span class="n">math.random</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-		<span class="kd">local</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">math.random</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-		<span class="kr">if</span> <span class="n">n2</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="kr">then</span>
-			<span class="kr">return</span> <span class="n">n</span><span class="p">;</span>
-		<span class="kr">end</span>
-	<span class="kr">end</span>
-<span class="kr">end</span></code></pre></div>
-</article>
-<nav class="no-print post-nav">
 
-	<a class="prev-post" href="example.com/post/perlin/">
-		<img class="icon-text" src="/img/prev.svg"/>Perlin噪音算法初次接触</a>
+<pre><code class="language-lua">function generatorNumber()
+	while true do
+		local n = math.random(100);
+		local n2 = math.random(100);
+		if n2 &lt; n then
+			return n;
+		end
+	end
+end
+</code></pre>
 
-
-</nav>
+</div>
 
 
 
 
-			<hr class="sep" />
-		</main>
-		<footer class="container no-print">
-			<div class="u-footer">
-				
-<a href="mailto:mail@yurizal-san.com"><img class="icon-social" src="/img/email.svg" alt="Email Me!"/></a>
-
-
-<a href="https://github.com/yursan9/"><img class="icon-social" src="/img/github.svg" alt="Github"/></a>
-
-
-<a href="https://twitter.com/yuri_boya"><img class="icon-social" src="/img/twitter.svg" alt="Twitter"/></a>
-
-<a href="example.com/index.xml" target="_blank"><img class="icon-social" src="/img/feed.svg" alt="Feed"></a>
-
-				<p>
-					
-					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
-					
-					
-					&copy; 2018 Yurizal Susanto
-					
-					
-					| <a href="/about/license">License</a>
-					
-				</p>
-				
-				<a href="#brand">
-					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
-					<span>Back to Up</span>
-				</a>
-				
-			</div>
-		</footer>
-		
-	</body>
+<footer>
+	<p>© 2017-2018, all rights reserved.</a>
+</footer>
+</body>
 </html>
-
