@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>acldm的博客</title>
-    <link>/</link>
+    <link>https://acldm.github.io/</link>
     <description>Recent content on acldm的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 Jun 2018 13:21:14 +0800</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://acldm.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>生成自定义分布的随机数——蒙特卡洛算法</title>
-      <link>/post/mtkl/</link>
+      <link>https://acldm.github.io/post/mtkl/</link>
       <pubDate>Wed, 20 Jun 2018 13:21:14 +0800</pubDate>
       
-      <guid>/post/mtkl/</guid>
+      <guid>https://acldm.github.io/post/mtkl/</guid>
       <description>日常使用的随机有很多需求是无法满足的。自定义分布就是普通随机生成算法所棘手的一个问题。
 所谓自定义分布，比如说，有一个6面骰子，正常情况下，1~6这6个数字均匀分布在6个面。投掷骰子，这六个数字各有六分之一的机率正面朝上，这是最常见的状况。
 现在，换一个6面骰子，与前一个骰子不一样的是现在的6面骰有3个面上是3，两个面上是2，剩余一个面上是1。现在，投掷这个骰子，这时正面朝上的数字的机率就不是均等的了。数字3正面朝上的机率是二分之一，数字2正面朝上的机率所三分之一。数字1正面朝上的机率是六分之一。想要得到这种自定义分布的随机数，普通的随机数生成器是形不通的。
@@ -27,10 +27,10 @@ function generatorNumber() while true do local n = math.random(100); local n2 = 
     
     <item>
       <title>Perlin噪音算法初次接触</title>
-      <link>/post/perlin/</link>
+      <link>https://acldm.github.io/post/perlin/</link>
       <pubDate>Wed, 20 Jun 2018 13:20:20 +0800</pubDate>
       
-      <guid>/post/perlin/</guid>
+      <guid>https://acldm.github.io/post/perlin/</guid>
       <description>一个标准的随机数生成器能够产生互不关联的随机数。但是一般的随机性并不符合自然界的特征。
 Perlin噪音算法就是用于生成符合自然排序的伪随机数序列。这样的算法生成的值与其相邻的值是有一定关联的。比如现实中的地形，虽然高低随机但起伏一般是连续的。没有断崖时的差距。
 在Processing中内置了Perlin噪音算法的实现:noise()函数。noise()函数可以有1~3个参数，分别代表1维，2维，3维。
@@ -40,10 +40,10 @@ Perlin噪音算法就是用于生成符合自然排序的伪随机数序列。�
     
     <item>
       <title>关于我</title>
-      <link>/about/</link>
+      <link>https://acldm.github.io/about/</link>
       <pubDate>Wed, 20 Jun 2018 13:16:16 +0800</pubDate>
       
-      <guid>/about/</guid>
+      <guid>https://acldm.github.io/about/</guid>
       <description>计算机专业本科在读生
 努力的游戏程序员
 历史爱好者</description>
