@@ -1,51 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title> 生成自定义分布的随机数——蒙特卡洛算法 &middot; acldm的博客 </title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="日常使用的随机有很多需求是无法满足的。自定义分布就是普通随机生成算法所棘手的一个问题。
+所谓自定义分布，比如说，有一个6面骰子，正常情况下，1~6这6个数字均匀分布在6个面。投掷骰子，这六个数字各有六分之一的机率正面朝上，这是最常见的状况。
+现在，换一个6面骰子，与前一个骰子不一样的是现在的6面骰有3个面上是3，两个面上是2，剩余一个面上是1。现在，投掷这个骰子，这时正面朝上的数字的机率就不是均等的了。数字3正面朝上的机率是二分之一，数字2正面朝上的机率所三分之一。数字1正面朝上的机率是六分之一。想要得到这种自定义分布的随机数，普通的随机数生成器是形不通的。
+对于这样的问题，正好有一个简单有效的算法来生成这样的随机数。它就是蒙特卡洛算法。这个算法生成两个随机数并使用以下步骤来生成一个自定义分布的数：
+ 选择一个随机数R1 计算R1被选中的资格P(假设P=R1) 生成新的随机数R2 如果R2小于P,则R1就是要找的随机数 如果R2大于P,丢弃R1回到第1步重新寻找  以下是该算法的实现:
+function generatorNumber() while true do local n = math.random(100); local n2 = math.random(100); if n2 &lt; n then return n; end end end  ">
+
+<meta property="og:title" content="生成自定义分布的随机数——蒙特卡洛算法" />
+<meta property="og:description" content="日常使用的随机有很多需求是无法满足的。自定义分布就是普通随机生成算法所棘手的一个问题。
+所谓自定义分布，比如说，有一个6面骰子，正常情况下，1~6这6个数字均匀分布在6个面。投掷骰子，这六个数字各有六分之一的机率正面朝上，这是最常见的状况。
+现在，换一个6面骰子，与前一个骰子不一样的是现在的6面骰有3个面上是3，两个面上是2，剩余一个面上是1。现在，投掷这个骰子，这时正面朝上的数字的机率就不是均等的了。数字3正面朝上的机率是二分之一，数字2正面朝上的机率所三分之一。数字1正面朝上的机率是六分之一。想要得到这种自定义分布的随机数，普通的随机数生成器是形不通的。
+对于这样的问题，正好有一个简单有效的算法来生成这样的随机数。它就是蒙特卡洛算法。这个算法生成两个随机数并使用以下步骤来生成一个自定义分布的数：
+ 选择一个随机数R1 计算R1被选中的资格P(假设P=R1) 生成新的随机数R2 如果R2小于P,则R1就是要找的随机数 如果R2大于P,丢弃R1回到第1步重新寻找  以下是该算法的实现:
+function generatorNumber() while true do local n = math.random(100); local n2 = math.random(100); if n2 &lt; n then return n; end end end  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://acldm.github.io/post/mtkl/" />
 
 
-<link rel="stylesheet" href="https://acldm.github.io/css/slim.css">
-<link rel="stylesheet" href="https://acldm.github.io/css/highlight.min.css">
-<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="/favicon.ico">
+<meta property="article:published_time" content="2018-06-20T13:21:14&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-06-20T13:21:14&#43;08:00"/>
 
 
-<link href="" rel="alternate" type="application/rss+xml" title="acldm的博客" />
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     生成自定义分布的随机数——蒙特卡洛算法 
+
+</title>
+<link rel="canonical" href="https://acldm.github.io/post/mtkl/">
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/pygments.css">
+    <link rel="stylesheet" href="/css/main.css">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/img/favicon.ico"
+
+>
+
+
+
+
+
+
+
 
 </head>
 
-<body>
-  <div class="container">
-    <div class="header">
-  <h1 class="site-title"><a href="https://acldm.github.io/">acldm的博客</a></h1>
-  <p class="site-tagline"></p>
-  <div class="nav">
-    <a class="nav-btn" href="#">
-      <span class="ci ci-burger"></span>
-    </a>
-    <ul class="nav-list">
-      
-      <li><a href="/">首页</a></li>
-      
-      <li><a href="/about">关于</a></li>
-       
-	  <li class="spacer">&ac;</li>
-  
-    </ul>
-  </div>
+
+<body lang="">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+            <a href="/"><div class="name"></div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-首页"><a href="https://acldm.github.io/"><i class='fa fa-heart'></i><span>首页</span></a></li>
+                    
+                        <li class="nav-"><a href="https://acldm.github.io/about"><i class='fa fa-road'></i><span>关于</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <div class="page-heading">
+
+    生成自定义分布的随机数——蒙特卡洛算法
+
 </div>
-    <div class="content">
-      <div class="posts">
-        <div class="post">
-          <h2 class="post-title"><a href="https://acldm.github.io/post/mtkl/">生成自定义分布的随机数——蒙特卡洛算法</a></h2>
-          <span class="post-date">Jun 20, 2018 </span>
-          <div class="post-content">
-            <p>日常使用的随机有很多需求是无法满足的。自定义分布就是普通随机生成算法所棘手的一个问题。</p>
+
+            <div class="markdown">
+                <p>日常使用的随机有很多需求是无法满足的。自定义分布就是普通随机生成算法所棘手的一个问题。</p>
 
 <p>所谓自定义分布，比如说，有一个6面骰子，正常情况下，1~6这6个数字均匀分布在6个面。投掷骰子，这六个数字各有六分之一的机率正面朝上，这是最常见的状况。</p>
 
@@ -74,27 +182,18 @@
 end
 </code></pre>
 
-          </div>
+            </div>
         </div>
-        <div class="pagination"> 
-          <a class="btn next " href="https://acldm.github.io/post/perlin/"> Next</a> 
-        </div>
-      </div>
     </div>
-    
-    <div class="footer">
-  
-  <p>Powered by <a href="http://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
-  
-</div>
+</section>
 
-  </div>
-  <script src="https://acldm.github.io/js/slim.js"></script>
-  <script src="https://acldm.github.io/js/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad();
-  </script>
-  
+
+
+
+
+
+
+
 </body>
-
 </html>
+
