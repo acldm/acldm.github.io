@@ -6,10 +6,28 @@
     <description>Recent content in Posts on acldm的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Jun 2018 13:21:14 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 23 Jun 2018 23:18:53 +0800</lastBuildDate>
     
 	<atom:link href="https://acldm.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C#中的泛型类</title>
+      <link>https://acldm.github.io/post/c#%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/</link>
+      <pubDate>Sat, 23 Jun 2018 23:18:53 +0800</pubDate>
+      
+      <guid>https://acldm.github.io/post/c#%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/</guid>
+      <description>泛型的主要作用是创建独立于类型的类和方法。
+泛型不仅仅是c#中的一种结构，还是CLR定义的，即c#中定义的泛型可以在其它.Net语言上使用。
+泛型的特点(好处)  性能 不再需要装箱拆箱
+ 类型安全 泛型类型(一般命名为T)定义了允许使用的类型，不符合的类型不会通过编译。
+ 代码重用 一次编写，各类都可以通过泛型得到对应的类型的实例。
+  泛型类的使用 默认值 泛型类型可以指定为值类型/引用类型，在泛型类内创建对应的泛型对象时有可能会遇到将对象的值赋值为null的情况。而null只能应用于引用类型并不能应用于值类型。
+解决这个问题的方法就是使用default关键字：
+T t = default(T);  default(T)对于引用类型的T返回null,对于值类型的T返回0
+约束 如果要使用泛型来调用特定类型中的方法，就必须使用约束，约束是一个接在泛型声明后的where子句。以下是泛型支持的几种约束:
+   约束 说明     where T: class 类约束，类型T必须是引用类型   where T: struct 结构约束,类型T必须是值类型   where T: IFoo 指定类型T必须实现接口IFoo   where T: Foo 指定类型T必须派生自基类Foo   where T: new() 构造函数约束,指定类型T必须具有一个默认构造函数   where T:Tb 泛型类型约束，类型T必须派生自泛型类型Tb    继承 泛型类型可以实现泛型接口:</description>
+    </item>
     
     <item>
       <title>生成自定义分布的随机数——蒙特卡洛算法</title>
